@@ -110,9 +110,10 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cus
         // id in my front end to then get the customer/product information to display to the user, thus further making my endpoints modular and only having one 
         // responsiblity, as it stands now it has 2 responsibilities, it's responsible for saving the order to the database and returning that order for the 
         // customer to view. 
+        #endregion
 
         var productsDto = request.Products?.Select(p => new ProductDto(p.Id, p.ProductName, p.Quantity, p.SellPrice));
         return new CustomerOrderVm(new CustomerOrderDto(order.Id, productsDto.ToList()));
-        #endregion
+
     }
 }
