@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/VPTest/v16/TestStore/0/000.testlog
+*.suo
+*.sqlite
+/ECommerce/.vs/ECommerce/v16/TestStore/0/000.testlog
+/ECommerce/.vs/ECommerce/v16/TestStore/0/testlog.manifest
