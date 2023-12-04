@@ -12,7 +12,7 @@ public class ValidateProductService : IValidateProductService
 
     public bool ValidateProductSellPrice(List<Domain.Entities.Product> products)
     {
-        var productIds = products.Select(x => x.Id).ToList();
+        var productIds = products?.Select(p => p.Id).ToList();
 
         var databaseProducts = _dbContext.Products.Where(p => productIds.Contains(p.Id));
 

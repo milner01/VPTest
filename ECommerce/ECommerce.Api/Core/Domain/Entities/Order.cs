@@ -2,7 +2,7 @@
 
 public class Order
 {
-    public Order(string? customerName, string shippingAddress, List<Product>? products, decimal? totalPrice, DateTime? orderDate)
+    public Order(string? customerName, string shippingAddress, List<Product> products, decimal? totalPrice, DateTime? orderDate)
     {
         CustomerName = customerName ?? throw new ArgumentNullException("Error: Customer Name cannot be empty."); // Discussion: Basic Validation
         ShippingAddress = shippingAddress ?? throw new ArgumentNullException("Error: Shipping Address cannot be empty.");

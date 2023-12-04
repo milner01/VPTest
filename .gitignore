@@ -7,3 +7,6 @@
 *.sqlite
 /ECommerce/.vs/ECommerce/v16/TestStore/0/000.testlog
 /ECommerce/.vs/ECommerce/v16/TestStore/0/testlog.manifest
+/ECommerce/.vs/ECommerce/FileContentIndex/029f10a3-c1a6-4c47-9197-f56a3bca11bb.vsidx
+/ECommerce/.vs/ECommerce/FileContentIndex/6256166e-9b46-4eee-a89c-45df63b2d044.vsidx
+/ECommerce/ECommerce.Api/bin/Debug/net8.0/ECommerce.Api.dll

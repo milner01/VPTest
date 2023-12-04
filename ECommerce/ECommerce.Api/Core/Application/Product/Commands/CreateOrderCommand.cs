@@ -1,6 +1,5 @@
 ﻿using ECommerce.Api.Core.Application.Product.Commands.Dto;
 using ECommerce.Api.Core.Application.Product.Commands.ViewModels;
-using ECommerce.Api.Core.Application.Product.Services.AddOrderService;
 using ECommerce.Api.Core.Application.Product.Services.ValidateProductSerivce;
 using ECommerce.Api.Core.Domain.Entities;
 using ECommerce.Api.Core.Interfaces;
@@ -37,7 +36,7 @@ public class CreateOrderCommand : IRequest<CustomerOrderVm>
         set { }
     }
 
-    public List<Domain.Entities.Product>? Products
+    public List<Domain.Entities.Product> Products
     {
         get
         {
@@ -79,13 +78,11 @@ public class CreateOrderCommand : IRequest<CustomerOrderVm>
 public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, CustomerOrderVm>
 {
     private readonly IEcommerceDbContext _dbContext;
-    private readonly IAddOrderService _addOrderService;
     private readonly IValidateProductService _validateProductService;
 
-    public CreateOrderCommandHandler(IEcommerceDbContext dbContext, IAddOrderService addOrderService, IValidateProductService validateProductService)
+    public CreateOrderCommandHandler(IEcommerceDbContext dbContext, IValidateProductService validateProductService)
     {
         _dbContext = dbContext;
-        _addOrderService = addOrderService;
         _validateProductService = validateProductService;
     }
 
@@ -112,8 +109,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cus
         // customer to view. 
         #endregion
 
-        var productsDto = request.Products?.Select(p => new ProductDto(p.Id, p.ProductName, p.Quantity, p.SellPrice));
-        return new CustomerOrderVm(new CustomerOrderDto(order.Id, productsDto.ToList()));
+        var productsDto = request.Products.Select(p => new ProductDto(p.Id, p.ProductName, p.Quantity, p.SellPrice));
+        return new CustomerOrderVm(new CustomerOrderDto(order.Id, productsDto?.ToList()));
 
     }
 }
