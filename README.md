@@ -5,3 +5,5 @@ The approach I've taken aims to demonstrate a Domain Driven Design approach with
 I have added some discussion within the query command stating what I would do differently within a full stack environment. 
 
 I have added some basic empty/null validation on some of the request entities, as well as validating the Sell Price is identical from the request via front end to what is stored in the database.  
+
+The code was written in Visual Studio 2022 with .NET 8.0
